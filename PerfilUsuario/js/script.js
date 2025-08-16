@@ -21,3 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+//Nuevo Elemento en Lista
+document.addEventListener("DOMContentLoaded", () => 
+{
+    const nuevo = document.getElementById("nuevo");
+    const btnAgregar = document.getElementById("btnAgregarItem")
+    const lista = document.getElementById("listaD")
+    if(nuevo && btnAgregar && lista)
+    {
+        btnAgregar.addEventListener("click", () => {
+            const texto = nuevo.value.trim()
+            if(texto === "")
+            {
+                alert("Escribe algo antes de agregar.")
+                return
+            }
+            const nuevoElemento = document.createElement("li")
+            nuevoElemento.textContent = texto;
+
+            lista.appendChild(nuevoElemento);
+
+            nuevo.value = ""
+            nuevo.focus()
+        });
+    }
+})
